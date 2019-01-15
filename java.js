@@ -11,7 +11,7 @@ $(document).ready(function(){
     }
 
 
-/* viewHoroscope(); */
+viewHoroscope();
 $("#visaHoroscope").click(function(){
     viewHoroscope();
 });
@@ -55,7 +55,7 @@ $("#sparaHoroscope").click(function(){
     $("#raderaHoroscope").click(function(){
                 
         $.ajax({
-            url:"php/deleteHoroscope.php",
+            url:"deleteHoroscope.php",
             method: "DELETE",
             data:{
                 "personNr": $("#angivetNummer").val()
