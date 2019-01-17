@@ -1,0 +1,16 @@
+body{
+    background-image: url(pics/stars.jpg);
+    background-size:cover;
+}
+header{
+    display: flex;
+    justify-content: center;
+}
+.knappdiv{
+    display: flex;
+    justify-content: center;
+}
+.inputdiv{
+    display:flex;
+    justify-content: center;
+}
