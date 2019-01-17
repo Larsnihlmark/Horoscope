@@ -1,7 +1,7 @@
 <?php
 
-parse_str(file_get_contents("php://input"), $_PUT);
 session_start();
+parse_str(file_get_contents("php://input"), $_PUT);
 
 if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
 
@@ -12,7 +12,7 @@ if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
         echo "<p>Skriv in ett personnummer, radera den gamla och spara den nya!</p>";
     }
     else{
-        $_POST["personNr"] = $_PUT["personNr"];
+        $_POST["horoscope"] = $_PUT["horoscope"];
         include 'allHoroscope.php';
         $falseCheck = $horoscope->printSign();
 
