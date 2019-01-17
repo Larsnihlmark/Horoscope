@@ -12,7 +12,7 @@ if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
         echo "<p>Skriv in ett personnummer, radera den gamla och spara den nya!</p>";
     }
     else{
-        $_POST["horoscope"] = $_PUT["horoscope"];
+        $_POST["personNr"] = $_PUT["personNr"];
         include 'allHoroscope.php';
         $falseCheck = $horoscope->printSign();
 
