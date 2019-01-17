@@ -1,6 +1,7 @@
 body{
     background-image: url(pics/stars.jpg);
     background-size:cover;
+    color:black;
 }
 header{
     display: flex;
@@ -13,7 +14,35 @@ header{
 .inputdiv{
     display:flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 p{
     color: white;
+}
+input:focus{
+    outline: none;
+}
+button:focus{
+    outline:none;
+}
+.knapp{
+    height:70px;
+    width:120px;
+    border-radius: 20px;
+    font-family: cursive;
+    font-size: 18px;
+    font-weight: bold;
+    background-color:darkred;
+    color:lemonchiffon;
+}
+.pics{
+    border-radius: 50px;
+    height:400px;
+    width:600px;
+}
+.content{
+    text-align: center;
+}
+h1{
+    font-style: italic;
 }
