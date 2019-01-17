@@ -3,17 +3,17 @@
 parse_str(file_get_contents("php://input"), $_PUT);
 session_start();
 
-if($_SERVER["REQUEST_METHOD"] == "PUT"){
+if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
 
-    if($_SESSION["horoscope"] == null){
+    if(isset($_SESSION["horoscope"]) == null){
         echo "<p>Det finns inget horoskop sparat!</p>";
     }
-    else if($_PUT["personNr"] == null){
-        echo "<p>Skriv in ett personnummer!</p>";
+    else if(isset($_PUT["personNr"]) == null){
+        echo "<p>Skriv in ett personnummer, radera den gamla och spara den nya!</p>";
     }
     else{
         $_POST["personNr"] = $_PUT["personNr"];
-        include 'calculateHoroscope.php';
+        include 'allHoroscope.php';
         $falseCheck = $horoscope->printSign();
 
         if($falseCheck != "<p>Felaktigt personnummer!</p>"){
