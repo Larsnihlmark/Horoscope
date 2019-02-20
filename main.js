@@ -1,20 +1,20 @@
 $(document).ready(function(){
 // Se vad som har sparat i php och skriver ut den i ett knapp click
-    viewHoroscope = function(){
-        $.ajax({
-            url:"viewHoroscope.php",
-            method: "GET",
-            success: function(results){
-                $(".content").html(results);
-            }
-        })
-    }
-
-
-viewHoroscope();
 $("#visaHoroscope").click(function(){
     viewHoroscope();
 });
+
+viewHoroscope = function(){
+    $.ajax({
+        url:"viewHoroscope.php",
+        method: "GET",
+        success: function(results){
+            $(".content").html(results);
+        }
+    })
+}
+});
+
 //Sparar vi ett nummer till php file för att kunna hämta den
 $("#sparaHoroscope").click(function(){
 
@@ -65,4 +65,3 @@ $("#sparaHoroscope").click(function(){
             }
         });   
     });
-});
