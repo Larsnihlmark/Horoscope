@@ -12,5 +12,8 @@ if(isset($_SERVER["REQUEST_METHOD"]) == "DELETE"){
         session_destroy();
     }
 }
+else {
+    echo "<p>Not requested by DELETE</p>";
+}
 
 ?>

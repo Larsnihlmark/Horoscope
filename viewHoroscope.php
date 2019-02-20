@@ -11,4 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "GET"){
         echo "<p>Det finns inget horoskop sparat!</p>";
     }
 }
+else {
+    echo "<p>Not requested by GET</p>";
+}
 ?>

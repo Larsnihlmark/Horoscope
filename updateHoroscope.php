@@ -4,7 +4,7 @@ session_start();
 parse_str(file_get_contents("php://input"), $_PUT);
 
 if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
-
+    
     if(isset($_SESSION["horoscope"]) == null){
         echo "<p>Det finns inget horoskop sparat!</p>";
     }
@@ -15,7 +15,7 @@ if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
         $_POST["personNr"] = $_PUT["personNr"];
         include 'allHoroscope.php';
         $falseCheck = $horoscope->printSign();
-
+        
         if($falseCheck != "<p>Felaktigt personnummer!</p>"){
             $_SESSION["horoscope"] = $horoscope->printSign();
             $true = true;
@@ -26,6 +26,9 @@ if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
             session_destroy();
         }
     }
+}
+else {
+    echo "<p>Not requested by PUT</p>";
 }
 
 ?>
