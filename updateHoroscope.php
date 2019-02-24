@@ -7,9 +7,11 @@ if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
     
     if(isset($_SESSION["horoscope"]) == null){
         echo "<p>Det finns inget horoskop sparat!</p>";
+        echo json_encode(false);
     }
     else if(isset($_PUT["personNr"]) == null){
         echo "<p>Skriv in ett personnummer, radera den gamla och spara den nya!</p>";
+        echo json_encode(false);
     }
     else{
         $_POST["personNr"] = $_PUT["personNr"];
@@ -18,8 +20,8 @@ if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
         
         if($falseCheck != "<p>Felaktigt personnummer!</p>"){
             $_SESSION["horoscope"] = $horoscope->printSign();
-            $true = true;
-            echo $true;
+            echo ($_SESSION["horoscope"]);
+            echo json_encode(true);
         }
         else{
             echo $falseCheck;
@@ -28,7 +30,7 @@ if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
     }
 }
 else {
-    echo "<p>Not requested by PUT</p>";
+    echo  json_encode(array("status" => "error", "not requested by PUT"));
 }
 
 ?>
