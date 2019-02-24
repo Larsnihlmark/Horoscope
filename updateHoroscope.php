@@ -6,11 +6,9 @@ parse_str(file_get_contents("php://input"), $_PUT);
 if(isset($_SERVER["REQUEST_METHOD"]) == "PUT"){
     
     if(isset($_SESSION["horoscope"]) == null){
-        echo "<p>Det finns inget horoskop sparat!</p>";
         echo json_encode(false);
     }
     else if(isset($_PUT["personNr"]) == null){
-        echo "<p>Skriv in ett personnummer, radera den gamla och spara den nya!</p>";
         echo json_encode(false);
     }
     else{
