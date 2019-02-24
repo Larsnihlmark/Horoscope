@@ -1,7 +1,6 @@
 $(document).ready(function(){
 // Se vad som har sparat i php och skriver ut den i ett knapp click
-$("#visaHoroscope").click(function(){
-    viewHoroscope();
+viewHoroscope();
 });
 
 viewHoroscope = function(){
@@ -13,8 +12,9 @@ viewHoroscope = function(){
         }
     })
 }
+$("#visaHoroscope").click(function(){
+    viewHoroscope();
 });
-
 //Sparar vi ett nummer till php file för att kunna hämta den
 $("#sparaHoroscope").click(function(){
 
@@ -30,6 +30,7 @@ $("#sparaHoroscope").click(function(){
             }
             else {
                 $(".content").html(results);
+                console.error(status.error, results);
             }
         }
     });
@@ -40,13 +41,14 @@ $("#sparaHoroscope").click(function(){
             url:"updateHoroscope.php",
             method: "PUT",
             data:{
-                "personNr": $("#angivetNummer").val()
+                "personNr": $("#angivetnummer").val()
             },
             success: function(results){
                 if(results == true){
                     viewHoroscope();
                 }   else  {
                     $(".content").html(results);
+                    console.error(status.error, results);
                 }
             }
         }); 
@@ -58,10 +60,11 @@ $("#sparaHoroscope").click(function(){
             url:"deleteHoroscope.php",
             method: "DELETE",
             data:{
-                "personNr": $("#angivetNummer").val()
+                "personNr": $("#angivetnummer").val()
             },
             success: function(results){
                 $(".content").html(results);
+                console.error(status.error, results);
             }
         });   
     });
