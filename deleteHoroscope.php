@@ -4,16 +4,16 @@ session_start();
 
 if(isset($_SERVER["REQUEST_METHOD"]) == "DELETE"){
 
-    if(isset($_SESSION["horoscope"]) == null){
-        echo "<p>Det finns inget horoskop sparat!</p>";
+    if(isset($_SESSION["horoscope"]) == null){    
+        echo json_encode(false);
     }
     else{
-        echo "<p>Horoskopet raderat!</p>";
+        echo json_encode(true);
         session_destroy();
     }
 }
 else {
-    echo "<p>Not requested by DELETE</p>";
+    echo  json_encode(array("status" => "error", "not requested by DELETE"));
 }
 
 ?>

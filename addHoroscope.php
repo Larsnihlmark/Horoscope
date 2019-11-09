@@ -8,15 +8,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $wrongNumberMessage = $horoscope->printSign();
     $falseCheck = $horoscope->printSign();
 
-    if($_POST["personNr"] == null && $_SESSION["horoscope"] == null){
-        echo "<p>Skriv in ett personnummer!</p>";
+    if($_POST["personNr"] == null){
+        echo json_encode(false);
     }
     else if(isset($_SESSION["horoscope"]) == null){
 
         if($falseCheck != "<p>Felaktigt personnummer!</p>"){
             $_SESSION["horoscope"] = $horoscope->printSign();
-            $true = true;
-            echo $true;
+            echo ($_SESSION["horoscope"]);
+            echo json_encode(true);
         }
         else{
             echo $wrongNumberMessage;
@@ -24,6 +24,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
 }
 else{
-    echo "<p>Not requested by POST</p>";
+    echo  json_encode(array("status" => "error", "not requested by POST"));
 }
 ?>
