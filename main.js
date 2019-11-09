@@ -1,21 +1,21 @@
 $(document).ready(function(){
-
-    viewHoroscope = function(){
-        $.ajax({
-            url:"viewHoroscope.php",
-            method: "GET",
-            success: function(results){
-                $(".content").html(results);
-            }
-        })
-    }
-
-
-viewHoroscope();
+// Se vad som har sparat i php och skriver ut den i ett knapp click
 $("#visaHoroscope").click(function(){
     viewHoroscope();
 });
 
+viewHoroscope = function(){
+    $.ajax({
+        url:"viewHoroscope.php",
+        method: "GET",
+        success: function(results){
+            $(".content").html(results);
+        }
+    })
+}
+});
+
+//Sparar vi ett nummer till php file för att kunna hämta den
 $("#sparaHoroscope").click(function(){
 
     $.ajax({
@@ -34,7 +34,7 @@ $("#sparaHoroscope").click(function(){
         }
     });
 });
-
+// uppdatera vi för att kunna spara om
     $("#uppdateraHoroscope").click(function(){
         $.ajax({
             url:"updateHoroscope.php",
@@ -51,7 +51,7 @@ $("#sparaHoroscope").click(function(){
             }
         }); 
     });
-
+//delete vi det vi har sparat i php file
     $("#raderaHoroscope").click(function(){
                 
         $.ajax({
@@ -65,4 +65,3 @@ $("#sparaHoroscope").click(function(){
             }
         });   
     });
-});

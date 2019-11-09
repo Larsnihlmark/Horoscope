@@ -5,15 +5,16 @@ session_start();
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     include "allHoroscope.php";
-    $wrongNumberMessage = $horoscope->pringSign();
+    $wrongNumberMessage = $horoscope->printSign();
+    $falseCheck = $horoscope->printSign();
 
     if($_POST["personNr"] == null && $_SESSION["horoscope"] == null){
-        echo "<p> Var vänligen skriv in ett personnummer!</p>";
+        echo "<p>Skriv in ett personnummer!</p>";
     }
-    else if($_SESSION["horoscope"] == null){
+    else if(isset($_SESSION["horoscope"]) == null){
 
         if($falseCheck != "<p>Felaktigt personnummer!</p>"){
-            $_SESSION["horoscope"] = $horoscope->printsign();
+            $_SESSION["horoscope"] = $horoscope->printSign();
             $true = true;
             echo $true;
         }
@@ -21,5 +22,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo $wrongNumberMessage;
         }
     }
+}
+else{
+    echo "<p>Not requested by POST</p>";
 }
 ?>
